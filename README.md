@@ -1,5 +1,5 @@
 # Ecom-Spring-Boot-
-This is a full-stack e-commerce application built using Spring Boot for the backend and React.js for the frontend. The application provides a seamless interface for managing and browsing products, offering essential functionalities such as adding, updating, deleting, and searching for products.<br>
+This is a full-stack e-commerce application built using Spring Boot for the backend and React.js for the frontend. The application provides a seamless interface for managing and browsing products, offering essential functionalities such as adding, updating, deleting, and searching for products. Also, Designed and integrated RESTful APIs for all operations to ensure efficient and scalable interactions between the frontend and backend.<br>
 
 <b>User Features</b><br>
 Browse Products: View a list of available products with details such as name, description, price, and category.<br>
