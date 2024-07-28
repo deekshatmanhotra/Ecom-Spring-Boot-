@@ -5,6 +5,7 @@ This is a full-stack e-commerce application built using Spring Boot for the back
 Browse Products: View a list of available products with details such as name, description, price, and category.<br>
 Search Products: Quickly find products by name or category using the search functionality.<br>
 Product Details: View detailed information about a selected product.<br>
+Cart Management: User-friendly add to cart feature to enhance shopping experience.<br>
 
 <b>Admin Features</b><br>
 Add New Products: Add new products to the inventory with complete details.<br>
