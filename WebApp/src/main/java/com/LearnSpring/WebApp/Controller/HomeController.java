@@ -14,7 +14,7 @@ public class HomeController {
 
     @RequestMapping("/about")
     public String about(){
-        return "we dont teach, we educate!!";
+        return "Hi!!";
     }
 
 }
