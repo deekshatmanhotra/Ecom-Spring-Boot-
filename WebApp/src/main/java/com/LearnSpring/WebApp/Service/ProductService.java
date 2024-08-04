@@ -1,45 +1,49 @@
-package com.LearnSpring.WebApp.Service;
+package com.LearnSpring.e_com.service;
 
-import com.LearnSpring.WebApp.Model.Product;
-import com.LearnSpring.WebApp.Repository.ProductRepo;
+import com.LearnSpring.e_com.model.Product;
+import com.LearnSpring.e_com.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.IOException;
 import java.util.List;
 
 @Service
 public class ProductService {
 
     @Autowired
-    ProductRepo repo;
+    private ProductRepo repo;
 
-//    List<Product> products = new ArrayList<>(Arrays.asList(new Product(101, "Iphone", 50000),
-//            new Product(102, "Camera", 7000)));
-
-    public List<Product> getProducts() {
-
+    public List<Product> getAllProducts(){
         return repo.findAll();
-
     }
 
-    public Product getProductById(int prodId) {
-//        return products.stream().filter(p -> p.getProdId() == prodId)
-//                .findFirst().orElse(new Product(100, "No Item", 0));
-        return repo.findById(prodId).orElse(new Product());
+    public Product getProductById(int id) {
+        return repo.findById(id).orElse(null);
     }
 
-    public void addProduct(Product prod) {
-        repo.save(prod);
+    public Product addProduct(Product product, MultipartFile imageFile)throws Exception {
+
+        product.setImageName(imageFile.getOriginalFilename());
+        product.setImageType((imageFile.getContentType()));
+        product.setImageData(imageFile.getBytes());
+        return repo.save(product);
     }
 
-    public void updateProduct(Product prod) {
-        repo.save(prod);
+    public Product updateProduct(int id, Product product, MultipartFile imageFile)throws IOException {
+        product.setImageName(imageFile.getOriginalFilename());
+        product.setImageType((imageFile.getContentType()));
+        product.setImageData(imageFile.getBytes());
+        return repo.save(product);
     }
 
-    public void deleteProduct(int prodId) {
-        repo.deleteById(prodId);
+    public void deleteProduct(int id) {
+        repo.deleteById(id);
     }
 
+    public List<Product> searchProducts(String keyword) {
+        return repo.searchProducts(keyword);
+    }
 }
+
